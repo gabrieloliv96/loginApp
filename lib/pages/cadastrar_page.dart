@@ -85,11 +85,7 @@ class _CadastrarPageState extends State<CadastrarPage>
                     child: Column(
                       // ignore: prefer_const_literals_to_create_immutables
                       children: [
-                        Image.asset(
-                          'assets/logo.png',
-                          height: 100,
-                          width: 100,
-                        ),
+                        const Icon(Icons.account_circle_rounded),
                         const SizedBox(
                           height: 20,
                         ),

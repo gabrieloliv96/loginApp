@@ -55,7 +55,7 @@ class _IndexPageState extends State<IndexPage>
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Cabemce',
+          'APP',
           textAlign: TextAlign.center,
         ),
         centerTitle: true,
