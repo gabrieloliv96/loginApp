@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:escolamobile/constants/preferences_keys.dart';
+import 'package:escolamobile/controllers/cadastrar_controller.dart';
 import 'package:escolamobile/models/user_login_model.dart';
 import 'package:escolamobile/services/cadastrar_service.dart';
 import 'package:escolamobile/widgets/text_form_login_widget.dart';
@@ -21,11 +22,13 @@ class _CadastrarPageState extends State<CadastrarPage>
   final TextEditingController _mailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+  bool _isLoading = false;
+  CadastrarController _controller = CadastrarController();
+
   late AnimationController _progressController = AnimationController(
     vsync: this,
     duration: Duration(seconds: 2),
   );
-  bool _isLoading = false;
 
   Uri url = Uri.https(
       'fir-teste-da4cc-default-rtdb.firebaseio.com', '/cadastros.json');
@@ -90,7 +93,7 @@ class _CadastrarPageState extends State<CadastrarPage>
                           height: 20,
                         ),
                         TextFormLoginWidget(
-                          controller: _nameController,
+                          // controller: _nameController,
                           icon: const Icon(
                             Icons.person,
                             color: Colors.white,
@@ -98,12 +101,13 @@ class _CadastrarPageState extends State<CadastrarPage>
                           cor: Colors.white,
                           label: 'Nome completo',
                           textInput: TextInputType.name,
+                          onChangeController: _controller.setNome,
                         ),
                         const SizedBox(
                           height: 10,
                         ),
                         TextFormLoginWidget(
-                          controller: _mailController,
+                          // controller: _mailController,
                           icon: const Icon(
                             Icons.person,
                             color: Colors.white,
@@ -111,6 +115,7 @@ class _CadastrarPageState extends State<CadastrarPage>
                           cor: Colors.white,
                           label: 'Email',
                           textInput: TextInputType.emailAddress,
+                          onChangeController: _controller.setLogin,
                         ),
                         const SizedBox(
                           height: 10,
@@ -138,6 +143,7 @@ class _CadastrarPageState extends State<CadastrarPage>
                           isObscure: true,
                           textInput: TextInputType.text,
                           showButtom: true,
+                          onChangeController: _controller.setSenha,
                         ),
                         // const SizedBox(
                         //   height: 10,
@@ -181,6 +187,7 @@ class _CadastrarPageState extends State<CadastrarPage>
   void _cadastrar() {
     if (_formKey.currentState!.validate()) {
       CadastrarService().cadastrar(
+        _nameController.text,
         _mailController.text,
         _passwordController.text,
       );

@@ -72,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                     // ignore: prefer_const_literals_to_create_immutables
                     children: [
                       TextFormLoginWidget(
-                        controller: _mailController,
+                        // controller: _mailController,
                         icon: Icon(
                           Icons.person_pin_circle_rounded,
                           color: Colors.white,
@@ -86,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
                         height: 10,
                       ),
                       TextFormLoginWidget(
-                        controller: _passwordController,
+                        // controller: _passwordController,
                         cor: Colors.white,
                         icon: Icon(
                           Icons.vpn_key_rounded,
@@ -193,6 +193,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+// Somente para fins didaticos
   void _doLogin() {
     // if (_formKey.currentState!.validate()) {
     LoginService().login(
