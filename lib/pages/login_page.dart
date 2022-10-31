@@ -114,10 +114,11 @@ class _LoginPageState extends State<LoginPage> {
                           });
                         }),
                   ),
-                  Text(
-                    'Mantenha-me conectado',
-                    style: TextStyle(color: Colors.white),
-                  ),
+                  //MANTENHA-ME CONECTADO NÃO FUNCIONA
+                  // Text(
+                  //   'Mantenha-me conectado',
+                  //   style: TextStyle(color: Colors.white),
+                  // ),
                   SizedBox(
                     width: 50,
                   ),
